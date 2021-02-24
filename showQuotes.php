@@ -123,7 +123,7 @@ if (!isset($_SESSION['tata_logged_ID']))
 	<!--------------------------------<img src=\"pics\\".$quote['picture']."\" width=\"200\">-------------------------------------------------------------------->
 	<footer>
 		<div class="footContainer">
-			Copyrights All Rights Reserved - Adam Chojaczyk 2020 r.
+			Copyrights All Rights Reserved - Adam Chojaczyk <?php echo date("Y")?> r.
 			</div>
 	</footer>
 	

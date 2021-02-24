@@ -173,7 +173,7 @@ if (!isset($_SESSION['redirect']))
 	
 	<footer>
 		<div class="footContainer">
-			Copyrights All Rights Reserved - Adam Chojaczyk 2020 r.
+			Copyrights All Rights Reserved - Adam Chojaczyk <?php echo date("Y")?> r.
 		</div>
 	</footer>
 </body>
