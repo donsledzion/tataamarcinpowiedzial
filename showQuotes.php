@@ -94,7 +94,7 @@ if (!isset($_SESSION['tata_logged_ID']))
 					$_SESSION['edit_kid'] = $quote['bombelek'];
 					$_SESSION['edit_sentence'] = $quote['sentence'];
 					$_SESSION['edit_picture'] = $quote['picture'];
-					
+					//echo "<br>".$_SESSION['picture']."</br>";
 					echo 	"
 							<div style=\"float:left;\">
 								<form action=\"editQuote.php\" method=\"post\" name=\"editQuote\" id=\"editQuote\">

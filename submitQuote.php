@@ -43,16 +43,17 @@ if(isset($_SESSION['tata_logged_ID']))
 			$_SESSION['e_fillAny']="wpisz cokolwiek!";
 		}
 		if(empty($_FILES["picture"]["name"]))
-			$picture = 'julek.jpg' ; // domyślny obrazek
+			$picture = strtolower($_POST['quoted']).'.jpg' ; // default picture depending on quoted child
 		else
 		{
 			include 'pictureUpload.php' ;
+                        
 			if(isset($_SESSION['e_upload']))
 			{
 				header('Location: addQuote.php');
 				exit();
 			}	
-			$picture = $_SESSION['picture'] ;
+			$picture = $_SESSION['target_file'] ;
 		}
 		
 		//Sprawdź czy data podana w formularzu nie jest z przyszłości!

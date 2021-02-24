@@ -17,6 +17,10 @@ if(isset($_POST["submit"])) {
   if($check !== false) {
     //echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
+    $_SESSION['target_file'] = date(Ymd).date(His).".".$imageFileType;
+    $target_file = $target_dir.$_SESSION['target_file'];
+    
+    
   } else {
     $_SESSION['e_upload'] = "Błąd - plik nie jest obrazem!";
     $uploadOk = 0;
@@ -33,11 +37,11 @@ if (file_exists($target_file)) {
 }
 else{
 // Check file size
-if ($_FILES["picture"]["size"] > 5000000) {
+/*if ($_FILES["picture"]["size"] > 5000000) {
   $_SESSION['e_upload'] =  "Błąd - za duży plik!";
   $uploadOk = 0;
 }
-
+*/
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
