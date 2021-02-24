@@ -77,7 +77,8 @@ if (!isset($_SESSION['tata_logged_ID']))
 	
 			echo "<div class=\"post\">
 				
-				<div class=\"quote\">".htmlentities($quote['sentence'])."<br><p class=\"quote_date\">{$quote['quote_date']}</p></div>
+				<div class=\"quote\">".htmlentities($quote['sentence'])."<br>"
+                                . "<p class=\"quote_date\">{$quote['bombelek']}  {$quote['quote_date']}</p></div>
 				
 				<div class=\"picture\">
 					<a class=\"example-image-link\" href=\"pics\\".$quote['picture']."\" data-lightbox=\"example-1\"><img class=\"example-image\" src=\"pics\\".$quote['picture']."\"  alt=\"image-1\" width=\"200\" /></a>
