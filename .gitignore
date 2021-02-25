@@ -3,4 +3,5 @@ config.json
 config.php
 php.ini
 database.php
+tester.php
 pics/
