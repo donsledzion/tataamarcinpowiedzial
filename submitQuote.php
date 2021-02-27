@@ -76,7 +76,7 @@ if(isset($_SESSION['tata_logged_ID']))
                 $dateToInsert = "";
                 $dateToInsert .= $_POST['quote_date']." ".date("H:i:s",strtotime($currentDate));
                     
-                    
+                 $currentDate = date("Y-m-d H:i:s") ;   
 		$query = $db -> prepare('INSERT INTO kids_post VALUES(:id, :datestamp, :quote_date, :author, :bombelek, :sentence, :picture)');
 		$query->bindValue(':id', NULL);
 		$query->bindValue(':datestamp', $currentDate); //data dodania wpisu

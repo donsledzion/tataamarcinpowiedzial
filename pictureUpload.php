@@ -19,7 +19,7 @@ if(isset($_POST["submit"])) {
   if($check != false) {
     //echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
-    $_SESSION['target_file'] = date(Ymd).date(His).".".$imageFileType;
+    $_SESSION['target_file'] = date("Ymd").date("His").".".$imageFileType;
     $target_file = $target_dir.$_SESSION['target_file'];
     
     
@@ -57,7 +57,12 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
 	//$_SESSION['e_upload'] = "Co sie jebie, ale tutaj dotarlo!" ;
-  if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
+  //if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
+  if (resize_picture($_FILES["picture"]["tmp_name"],768,$target_dir.'768/'.$_SESSION['target_file'])) {
+      
+        resize_picture('pics/768/'.$_SESSION['target_file'],480,$target_dir.'480/'.$_SESSION['target_file']);
+        resize_picture('pics/768/'.$_SESSION['target_file'],320,$target_dir.'320/'.$_SESSION['target_file']);
+        resize_picture('pics/768/'.$_SESSION['target_file'],160,$target_dir.'160/'.$_SESSION['target_file']);
 	  $_SESSION['picture'] = basename($_FILES["picture"]["name"]) ;
     //echo "The file ". htmlspecialchars( basename( $_FILES["picture"]["name"])). " has been uploaded.";
   } else {

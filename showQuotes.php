@@ -81,7 +81,7 @@ if (!isset($_SESSION['tata_logged_ID']))
                                 . "<p class=\"quote_date\">{$quote['bombelek']}  {$showDate}</p></div>
 				
 				<div class=\"picture\">
-					<a class=\"example-image-link\" href=\"pics\\".$quote['picture']."\" data-lightbox=\"example-1\"><img class=\"example-image\" src=\"pics\\".$quote['picture']."\"  alt=\"image-1\" width=\"200\" /></a>
+					<a class=\"example-image-link\" href=\"pics\\768\\".$quote['picture']."\" data-lightbox=\"example-1\"><img class=\"example-image\" src=\"pics\\320\\".$quote['picture']."\"  alt=\"image-1\" width=\"200\" /></a> 
 				</div>
 				
 				<div style=\"clear:both\">
@@ -106,6 +106,7 @@ if (!isset($_SESSION['tata_logged_ID']))
 							<div style=\"float:left; margin-left:35px;\">
 								<form action=\"deleteQuote.php\" method=\"post\" name=\"deleteQuote\" id=\"deleteQuote\">
 									<input type = \"hidden\" name=\"deleteID\" id=\"deleteID\" value=\"".$quote['id']."\">
+									<input type = \"hidden\" name=\"deletePicName\" id=\"deletePicName\" value=\"".$quote['picture']."\">
 									<input type = \"submit\" style=\"width:300px;background-color:#ff8080;\" name=\"deleteSubmit\" value=\"usuń\" >
 								</form>
 							</div>
