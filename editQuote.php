@@ -133,7 +133,7 @@ else
 <!---------------------------------------------------------------------------------------------------->
 <!------------------------------------------ ZDJĘCIE ------------------------------------------------->
 <!---------------------------------------------------------------------------------------------------->					
-					<input type="file" name="editPicture" id="editPicture">
+					<input type="file" name="picture" id="picture">
 					<div>
 					<?
 					if(isset($_SESSION['e_upload']))
@@ -170,7 +170,7 @@ else
 						unset($_SESSION['e_date']);
 					}
 					?>
-					<input type="submit" value="Zapisz edycję" name="submit">
+					<input type="submit" value="Zapisz edycję" name="submit">   
 															
 				</form>
 			</div>

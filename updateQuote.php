@@ -17,7 +17,7 @@ if(isset($_SESSION['tata_logged_ID']))
 		
 		$_SESSION['fill_quote'] = $_POST['editQuote'];
 		$_SESSION['fill_quoted'] = $_POST['editQuoted'];
-		$_SESSION['fill_picture'] = $_POST['editPicture'];
+		$_SESSION['fill_picture'] = $_POST['picture'];
 		$_SESSION['fill_date'] = $_POST['editQuote_date'];
                 $_SESSION['oldPicture'] = basename($_POST['oldPicture']);
 		$_SESSION['target_file'] = date("Ymd").date("His").".".strtolower(pathinfo(basename($_POST['oldPicture']),PATHINFO_EXTENSION));
@@ -42,12 +42,12 @@ if(isset($_SESSION['tata_logged_ID']))
 			$all_OK = false ;
 			$_SESSION['e_fillAny']="dodaj cokolwiek!";
 		}
-		if(empty($_FILES["editPicture"]["name"]))
+		if(empty($_FILES["picture"]["name"]))
 			//$picture = $_POST['oldPicture'] ; // domyślny obrazek
                         true;
 		else
 		{
-			include 'pictureUpdate.php' ;
+			include 'pictureUpload.php' ;
 			if(isset($_SESSION['e_upload']))
 			{
 				header('Location: editQuote.php');

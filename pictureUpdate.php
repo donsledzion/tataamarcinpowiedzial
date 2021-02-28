@@ -58,8 +58,6 @@ if ($uploadOk == 0) {
         if(ctype_digit($oldName[0])){
             delete_picture($_SESSION['oldPicture']);
         }
-        
-    //echo "The file ". htmlspecialchars( basename( $_FILES["picture"]["name"])). " has been uploaded.";
   } else {
     
     $_SESSION['e_upload'] =  "Wystąpił błąd podczas przesyłania pliku.";

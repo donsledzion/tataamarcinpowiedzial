@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "database.php";
-
+unset($_FILES["picture"]);
 if (!isset($_SESSION['tata_logged_ID'])){
 	header('Location: user.php') ;
 	exit();
