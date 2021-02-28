@@ -38,7 +38,7 @@ else
 	if(isset($_SESSION['fill_date']))
 		$edit_qd = $_SESSION['fill_date'];
 	else
-	$edit_qd = $eQ['quote_date'];
+                $edit_qd = $eQ['quote_date'];
 
 	if(isset($_SESSION['fill_quoted']))
 		$edit_kid = $_SESSION['fill_quoted'];
@@ -125,7 +125,7 @@ else
 					<textarea name="editQuote" id="editQuote" wrap="soft" rows="3" form="editQuote"><?echo $edit_sentence;?></textarea>
 					<? echo "
 					<div class=\"picture\">
-						<img src=\"pics\\".$edit_picture."\" width=\"200\">
+						<img src=\"pics\\320\\".$edit_picture."\" width=\"200\">
 					</div>";
 					?>
 					<input type="hidden" name="oldPicture" id="oldPicture" value=<?echo "\"".$edit_picture."\"";?>>
@@ -149,12 +149,12 @@ else
 <!---------------------------------------------------------------------------------------------------->
 <!------------------------------------------ DATA ---------------------------------------------------->
 <!---------------------------------------------------------------------------------------------------->					
-					<?
+					<?                                        
 					echo "<input type=\"date\" name=\"editQuote_date\" min=\"".$firstBirth."\" max=\"".date("Y-m-d")."\" value=\"" ;
-							
+                                                                
 								if (isset($edit_qd))
 								{
-									echo $edit_qd ;
+									echo date("Y-m-d",strtotime($edit_qd)) ;
 									unset($edit_qd);
 								}
 								else

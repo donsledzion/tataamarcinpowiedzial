@@ -36,8 +36,7 @@ if(isset($_SESSION['tata_logged_ID']))
 			$quotedQuery -> execute([$_POST['quoted']]);
 			$qQ = $quotedQuery->fetch();
 			$quotedBirth = $qQ['birthdate'];
-		}
-		
+		}		
 		
 		if(!isset($_POST['quote']))
 		{

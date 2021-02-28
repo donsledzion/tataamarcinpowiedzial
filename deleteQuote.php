@@ -9,8 +9,10 @@ if(isset($_SESSION['tata_logged_ID']))
         include 'imgMods.php';
 
 	if (isset($_POST['deleteID']))
-	{
-                if(($_POST['deletePicName']!='julek.jpg')&&($_POST['deletePicName']!='hania.jpg')) {
+	{                        
+                $string = "".$_POST['deletePicName'];
+            
+                if(ctype_digit( $string[0] )) { // script checks if picture's name starts with digit. If it's true it means that it's not default kid's picture (because it's named after kid's name)
                     delete_picture($_POST['deletePicName']);
                 }
                 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "database.php";
-
+unset($_FILES);
 if (!isset($_SESSION['tata_logged_ID']))
 {
 	header('Location: user.php') ;
@@ -14,8 +14,8 @@ if (!isset($_SESSION['tata_logged_ID']))
 <head>
     <meta charset="utf-8">
     <title>Sentencje i aforyzmy - Juliusz Chojaczyk</title>
-    <meta name="description" content="cytaty, bombelki, Julek, aforyzmy, bombelek">
-    <meta name="keywords" content="cytaty, Julek, bombelek, bombelki">
+    <meta name="description" content="cytaty, bombelki, Julek, Hanka, aforyzmy, bombelek">
+    <meta name="keywords" content="cytaty, Julek, Hanka, bombelek, bombelki">
     <meta http-equiv="X-Ua-Compatible" content="IE=edge">
 
     <link rel="stylesheet" href="css/main.css">

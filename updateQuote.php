@@ -9,6 +9,8 @@ if(isset($_SESSION['tata_logged_ID']))
 
 	if (isset($_POST['editQuote']))
 	{
+                
+                
 		$_SESSION['editQuote'] = $_POST['editQuote'];
 		//udana walidacja? Załóżmy, że tak!
 		$all_OK = true ; //ustawienie flagi! dowolna niepoprawność zmieni flagę na false
@@ -17,7 +19,8 @@ if(isset($_SESSION['tata_logged_ID']))
 		$_SESSION['fill_quoted'] = $_POST['editQuoted'];
 		$_SESSION['fill_picture'] = $_POST['editPicture'];
 		$_SESSION['fill_date'] = $_POST['editQuote_date'];
-		
+                $_SESSION['oldPicture'] = basename($_POST['oldPicture']);
+		$_SESSION['target_file'] = date("Ymd").date("His").".".strtolower(pathinfo(basename($_POST['oldPicture']),PATHINFO_EXTENSION));
 		//Sprawdź czy dokonano jakiejkolwiek formy wpisu (cytat lub zdjęcie)
 		
 		if(!isset($_POST['editQuoted']))
@@ -40,7 +43,8 @@ if(isset($_SESSION['tata_logged_ID']))
 			$_SESSION['e_fillAny']="dodaj cokolwiek!";
 		}
 		if(empty($_FILES["editPicture"]["name"]))
-			$picture = $_POST['oldPicture'] ; // domyślny obrazek
+			//$picture = $_POST['oldPicture'] ; // domyślny obrazek
+                        true;
 		else
 		{
 			include 'pictureUpdate.php' ;
@@ -49,8 +53,9 @@ if(isset($_SESSION['tata_logged_ID']))
 				header('Location: editQuote.php');
 				exit();
 			}	
-			$picture = $_SESSION['editPicture'] ;
+			
 		}
+                $picture = $_SESSION['target_file'] ;
 		
 		//Sprawdź czy data podana w formularzu nie jest z przyszłości!
 		$currentDate = date("Y-m-d") ;
@@ -64,17 +69,31 @@ if(isset($_SESSION['tata_logged_ID']))
 			$all_OK = false;
 			$_SESSION['e_date'] = 'Elo, elo! Cytat sprzed narodzin dziecka?!' ;
 		}
-				
+		$currentDate = date("Ymd His") ;
+                $_SESSION['edit_date'] = $currentDate;
 		if($all_OK == true)
-		{			
-		$query = $db -> prepare(	'UPDATE kids_post SET quote_date=:quote_date, bombelek=:bombelek, sentence=:sentence, picture=:picture WHERE id=:editID');
+		{
+                $dateToInsert = "";
+                $dateToInsert .= $_POST['editQuote_date']." ".date("H:i:s",strtotime($currentDate));
+
+                $currentDate = date("Y-m-d H:i:s") ;   
+                    
+		$query = $db -> prepare(	'UPDATE kids_post SET datestamp=:datestamp, quote_date=:quote_date, bombelek=:bombelek, sentence=:sentence, picture=:picture WHERE id=:editID');
 		$query->bindValue(':editID', $_POST[editID], PDO::PARAM_STR);
-		$query->bindValue(':quote_date', $_POST[editQuote_date], PDO::PARAM_STR); //data zdarzenia
+                $query->bindValue(':datestamp', $currentDate);
+		$query->bindValue(':quote_date', $dateToInsert, PDO::PARAM_STR); //data zdarzenia
 		$query->bindValue(':bombelek', $_POST[editQuoted], PDO::PARAM_STR);
 		$query->bindValue(':sentence', $_POST[editQuote], PDO::PARAM_STR);
 		$query->bindValue(':picture', $picture, PDO::PARAM_STR);
 		$query->execute();
-		
+		$oldName = basename($_POST['oldPicture']);
+                if(ctype_digit($oldName[0])){
+                    rename("pics/768/".$oldName, "pics/768/".$picture);
+                    rename("pics/480/".$oldName, "pics/480/".$picture);
+                    rename("pics/320/".$oldName, "pics/320/".$picture);
+                    rename("pics/160/".$oldName, "pics/160/".$picture);
+                }
+                
 		unset($_SESSION['fill_quote']);
 		unset($_SESSION['fill_quoted']);
 		unset($_SESSION['fill_picture']);
