@@ -4,13 +4,10 @@ session_start();
 
 if(isset($_SESSION['tata_logged_ID']))
 {
-
 	require_once 'database.php' ;
 
 	if (isset($_POST['editQuote']))
-	{
-                
-                
+	{       
 		$_SESSION['editQuote'] = $_POST['editQuote'];
 		//udana walidacja? Załóżmy, że tak!
 		$all_OK = true ; //ustawienie flagi! dowolna niepoprawność zmieni flagę na false
