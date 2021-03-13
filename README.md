@@ -12,3 +12,4 @@ password: guestpasswd
 
 Guest user has view only privilages.
 
+Parents only can submit or modify posts
