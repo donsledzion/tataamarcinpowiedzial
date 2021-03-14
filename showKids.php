@@ -72,7 +72,7 @@ if (!isset($_SESSION['tata_logged_ID'])){
 					echo "male\"></i></div>" ;
 					echo "<div class=\"kidContainer\">" ;
 					echo "<div class=\"kidPicture\">" ;
-					echo "<a class=\"example-image-link\" href=\"pics\\".$kid['default_pic']."\" data-lightbox=\"example-1\"><img class=\"example-image\" src=\"pics\\".$kid['default_pic']."\"  alt=\"image-1\" width=\"200\" /></a>";
+					echo "<a class=\"example-image-link\" href=\"pics\\768\\".$kid['default_pic']."\" data-lightbox=\"example-1\"><img class=\"example-image\" src=\"pics\\320\\".$kid['default_pic']."\"  alt=\"image-1\" width=\"200\" /></a>";
 					echo "</div>" ;
 					echo "<div class=\"kidInfo\">";
 						echo "<u>NARODZINY:</u></br>".$kid['birthdate']."</br></br>";

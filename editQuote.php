@@ -97,7 +97,7 @@ else
 	<main>
 		<article>
 			<div class="container">
-				<form action="updateQuote.php" method="post" id="editQuote" name="editQuote" enctype="multipart/form-data">
+				<form action="updateQuote.php" method="post" id="updateQuote" name="updateQuote" enctype="multipart/form-data">
 					<input type="hidden" name="editID" id="editID" value=<?php echo "\"".$postID."\"";?>>
 					
 <!---------------------------------------------------------------------------------------------------->
@@ -122,7 +122,7 @@ else
 <!---------------------------------------------------------------------------------------------------->
 <!------------------------------------------ CYTAT --------------------------------------------------->
 <!---------------------------------------------------------------------------------------------------->
-					<textarea name="editQuote" id="editQuote" wrap="soft" rows="3" form="editQuote"><?echo $edit_sentence;?></textarea>
+					<textarea name="editQuote" id="editQuote" wrap="soft" rows="3" form="updateQuote"><?echo $edit_sentence;?></textarea>
 					<? echo "
 					<div class=\"picture\">
 						<img src=\"pics\\320\\".$edit_picture."\" width=\"200\">
