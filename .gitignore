@@ -4,4 +4,6 @@ config.php
 php.ini
 database.php
 tester.php
+
 pics/
+modified:   nbproject/private/private.xml
