@@ -45,7 +45,11 @@ if(isset($_SESSION['tata_logged_ID']))
         }		
 
         if(empty($_FILES["picture"]["name"])) {
+            if($_SESSION['cameFrom']=='addQuote.php'){
                 $picture = strtolower($_POST['quoted']).'.jpg' ; // default picture depending on quoted child
+            } else {   
+                $picture = $_POST['oldPicture'] ; // domyślny obrazek
+            }
         }
         else
         {
