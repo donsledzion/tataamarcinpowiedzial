@@ -78,7 +78,7 @@ if (!isset($_SESSION['redirect']))
 <!--------------------------------------OTWARCIE FORMULARZA------------------------------------------->
 
 				<form action="submitQuote.php" method="post" id="addQuote" name="addQuote" enctype="multipart/form-data">
-				
+				<input type="hidden" name="cameFrom" id="cameFrom" value="addQuote.php">
 <!---------------------------------------------------------------------------------------------------->
 <!----------------------------------------- CYTOWANE DZIECKO ----------------------------------------->
 <!---------------------------------------------------------------------------------------------------->

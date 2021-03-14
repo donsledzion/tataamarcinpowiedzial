@@ -97,14 +97,14 @@ else
 	<main>
 		<article>
 			<div class="container">
-				<form action="updateQuote.php" method="post" id="updateQuote" name="updateQuote" enctype="multipart/form-data">
+				<form action="submitQuote.php" method="post" id="updateQuote" name="updateQuote" enctype="multipart/form-data">
 					<input type="hidden" name="editID" id="editID" value=<?php echo "\"".$postID."\"";?>>
-					
+					<input type="hidden" name="cameFrom" id="cameFrom" value="editQuote.php">
 <!---------------------------------------------------------------------------------------------------->
 <!----------------------------------------- CYTOWANE DZIECKO ----------------------------------------->
 <!---------------------------------------------------------------------------------------------------->
 
-					<select name="editQuoted" id="editQuoted">
+					<select name="quoted" id="quoted">
 						<?
 							foreach ($kids as $kid) 
 							{
@@ -122,7 +122,7 @@ else
 <!---------------------------------------------------------------------------------------------------->
 <!------------------------------------------ CYTAT --------------------------------------------------->
 <!---------------------------------------------------------------------------------------------------->
-					<textarea name="editQuote" id="editQuote" wrap="soft" rows="3" form="updateQuote"><?echo $edit_sentence;?></textarea>
+					<textarea name="quote" id="quote" wrap="soft" rows="3" form="updateQuote"><?echo $edit_sentence;?></textarea>
 					<? echo "
 					<div class=\"picture\">
 						<img src=\"pics\\320\\".$edit_picture."\" width=\"200\">
@@ -150,7 +150,7 @@ else
 <!------------------------------------------ DATA ---------------------------------------------------->
 <!---------------------------------------------------------------------------------------------------->					
 					<?                                        
-					echo "<input type=\"date\" name=\"editQuote_date\" min=\"".$firstBirth."\" max=\"".date("Y-m-d")."\" value=\"" ;
+					echo "<input type=\"date\" name=\"quote_date\" min=\"".$firstBirth."\" max=\"".date("Y-m-d")."\" value=\"" ;
                                                                 
 								if (isset($edit_qd))
 								{
